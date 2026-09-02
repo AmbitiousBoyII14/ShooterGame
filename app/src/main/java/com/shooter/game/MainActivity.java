@@ -1,15 +1,14 @@
-package core.src.com.shooter.game;
- 
-import android.app.Activity;
-import android.os.Bundle;
+package com.shooter.game;
 
-public class MainActivity extends Activity { 
-     
+import android.os.Bundle;
+import com.badlogic.gdx.backends.android.AndroidApplication;
+import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+
+public class MainActivity extends AndroidApplication {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
+        AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        initialize(new MainGame(), config);
     }
-	
-} 
+}
