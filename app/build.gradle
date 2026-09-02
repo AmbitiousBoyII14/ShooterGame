@@ -5,8 +5,6 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        // FIXED: applicationId cannot contain 'src' or dots in that format.
-        // Changed to a valid Android package identifier matching your Java package.
         applicationId "com.shooter.game"
         minSdkVersion 19
         targetSdkVersion 29
@@ -24,24 +22,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-
-    // REQUIRED: Links this Android module to your core game logic
-    implementation project(':core')
-
-    // REQUIRED: LibGDX Android backend (matches your existing SDK 29 / minSdk 19 setup)
-    // NOTE: Ensure the version below matches the libGDX version defined in your 
-    // root-level build.gradle or gradle.properties. If your project uses a 
-    // different version variable, replace '1.12.1' with that variable.
     implementation "com.badlogicgames.gdx:gdx-backend-android:1.12.1"
-
-    // REQUIRED: Native libraries for Android (armeabi-v7a, arm64-v8a, x86, x86_64)
+    
     natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-armeabi-v7a"
     natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-arm64-v8a"
     natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86"
     natives "com.badlogicgames.gdx:gdx-platform:1.12.1:natives-x86_64"
 }
 
-// REQUIRED: Copies native .so files into the APK assets/libs folder
 task copyAndroidNatives() {
     doFirst {
         configurations.natives.files.each { jar ->
