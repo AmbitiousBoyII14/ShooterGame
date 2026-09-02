@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
 
+// THIS IS THE FIX: Tell Gradle that 'natives' is a custom configuration
+configurations {
+    natives
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
