@@ -1,0 +1,40 @@
+
+Scan Time: 2026-09-01 21:42:59
+File Scanned: 1
+
+Method  Code  Server           Port  IP                Host
+------  ----  ------           ----  --                ----
+HEAD    403   nginx            443   35.172.94.1       lnc-services.co.uk
+HEAD    403   nginx            443   100.24.208.97     geoffdakin.com
+
+Scan Time: 2026-09-01 21:47:30
+File Scanned: 1
+
+Method  Code  Server           Port  IP                Host
+------  ----  ------           ----  --                ----
+HEAD    403   nginx            443   35.172.94.1       bradholtkampautomotiveinc.net
+HEAD    403   nginx            443   100.24.208.97     stowintegrityauto.com
+HEAD    403   nginx            443   100.24.208.97     g-werke.com
+HEAD    403   nginx            443   35.172.94.1       jhautomotiveinc.com
+
+Scan Time: 2026-09-02 06:41:05
+File Scanned: 2
+
+Method  Code  Server           Port  IP                Host
+------  ----  ------           ----  --                ----
+HEAD    403   nginx            443   100.24.208.97     crutchersautorepair.com
+HEAD    403   nginx            443   35.172.94.1       northroadauto.com
+HEAD    403   nginx            443   35.172.94.1       marinautomotive.net
+HEAD    403   nginx            443   35.172.94.1       repairone.com
+HEAD    403   nginx            443   35.172.94.1       acauto.net
+HEAD    403   nginx            443   35.172.94.1       sloansauto.com
+HEAD    403   nginx            443   35.172.94.1       billsautoelectricandrepair.com
+HEAD    403   nginx            443   100.24.208.97     ocalaautorepair.com
+
+Scan Time: 2026-09-02 06:46:39
+File Scanned: 3
+
+Method  Code  Server           Port  IP                Host
+------  ----  ------           ----  --                ----
+HEAD    403   nginx            443   100.24.208.97     actionautomotive.com
+HEAD    403   nginx            443   100.24.208.97     globalautoinc.com
