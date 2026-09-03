@@ -6,6 +6,7 @@ public class MainActivity extends AndroidApplication {
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
+        config.useImmersiveMode = true;
         initialize(new MainGame(), config);
     }
 }
