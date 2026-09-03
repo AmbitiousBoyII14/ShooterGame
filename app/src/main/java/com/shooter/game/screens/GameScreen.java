@@ -1,19 +1,10 @@
 package com.shooter.game.screens;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
-import com.shooter.game.MainGame;
-import com.shooter.game.bullets.Bullet;
-import com.shooter.game.enemies.Enemy;
-import com.shooter.game.player.Player;
-import com.shooter.game.ui.HUD;
-import com.shooter.game.ui.MobileControls;
+import com.badlogic.gdx.Gdx; import com.badlogic.gdx.Screen; import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera; import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer; import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.viewport.FitViewport; import com.badlogic.gdx.utils.viewport.Viewport;
+import com.shooter.game.MainGame; import com.shooter.game.bullets.Bullet; import com.shooter.game.enemies.Enemy;
+import com.shooter.game.player.Player; import com.shooter.game.ui.HUD; import com.shooter.game.ui.MobileControls;
 import com.shooter.game.world.GameMap;
 public class GameScreen implements Screen {
     private MainGame game; private OrthographicCamera camera; private Viewport viewport;
@@ -47,10 +38,9 @@ public class GameScreen implements Screen {
         for (int i = 0; i < bullets.size; i++) { Bullet b = bullets.get(i); if (b.active) shapeRenderer.circle(b.position.x, b.position.y, 4); }
         shapeRenderer.end();
         uiCamera.update(); shapeRenderer.setProjectionMatrix(uiCamera.combined); shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
-        controls.render(shapeRenderer); shapeRenderer.end();
-        batch.setProjectionMatrix(uiCamera.combined); batch.begin(); hud.render(batch, player); batch.end();
+        controls.render(shapeRenderer); hud.render(shapeRenderer, player); shapeRenderer.end();
     }
     @Override public void resize(int width, int height) { viewport.update(width, height); uiCamera.setToOrtho(false, width, height); controls = new MobileControls(); }
     @Override public void show() {} @Override public void pause() {} @Override public void resume() {} @Override public void hide() {}
-    @Override public void dispose() { shapeRenderer.dispose(); batch.dispose(); hud.dispose(); }
+    @Override public void dispose() { shapeRenderer.dispose(); batch.dispose(); }
 }
