@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.shooter.game" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shooter.game" >
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <application android:allowBackup="true" android:label="ShooterGame" android:theme="@style/GdxTheme" >
-        <activity android:name="com.shooter.game.MainActivity" android:label="ShooterGame" android:screenOrientation="landscape" android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout">
+
+    <application
+        android:allowBackup="true"
+        android:label="ShooterGame"
+        android:theme="@style/GdxTheme"
+        tools:replace="android:label,android:theme" >
+        
+        <activity
+            android:name="com.shooter.game.MainActivity"
+            android:label="ShooterGame"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|screenLayout"
+            tools:replace="android:label,android:screenOrientation,android:configChanges" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
