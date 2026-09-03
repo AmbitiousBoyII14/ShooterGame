@@ -7,15 +7,12 @@ import com.shooter.game.bullets.Bullet;
 import com.shooter.game.player.Player;
 import com.shooter.game.world.Platform;
 public class Enemy {
-    public Vector2 position, velocity, spawnPos; public Rectangle bounds;
-    public float width = 40, height = 60, health = 100, maxHealth = 100, moveSpeed = 150, gravity = -1200;
-    public boolean isAlive = true, isGrounded = false;
-    public static final int STATE_PATROL = 1, STATE_CHASE = 2; public int state = STATE_PATROL;
+    public Vector2 position, velocity, spawnPos; public Rectangle bounds; public float width = 40, height = 60, health = 100, maxHealth = 100, moveSpeed = 150, gravity = -1200;
+    public boolean isAlive = true, isGrounded = false; public static final int STATE_PATROL = 1, STATE_CHASE = 2; public int state = STATE_PATROL;
     public float shootCooldown = 0, shootRate = 1.2f, detectionRange = 500, patrolTimer = 0, patrolDir = 1;
     public Enemy(float x, float y) { position = new Vector2(x, y); velocity = new Vector2(0, 0); bounds = new Rectangle(x, y, width, height); spawnPos = new Vector2(x, y); }
     public void update(float delta, Player player, Array<Platform> platforms, Array<Bullet> bullets) {
-        if (!isAlive) return; velocity.y += gravity * delta;
-        float dist = position.dst(player.position); state = (player.isAlive && dist < detectionRange) ? STATE_CHASE : STATE_PATROL;
+        if (!isAlive) return; velocity.y += gravity * delta; float dist = position.dst(player.position); state = (player.isAlive && dist < detectionRange) ? STATE_CHASE : STATE_PATROL;
         if (state == STATE_PATROL) { patrolTimer += delta; if (patrolTimer > 2.0f) { patrolDir *= -1; patrolTimer = 0; } velocity.x = moveSpeed * patrolDir; }
         else if (state == STATE_CHASE) { velocity.x = (player.position.x > position.x) ? moveSpeed : -moveSpeed; shootCooldown -= delta; if (shootCooldown <= 0) { shootAtPlayer(player, bullets); shootCooldown = shootRate; } }
         else velocity.x = 0;
